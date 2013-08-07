@@ -19,7 +19,7 @@ server {
 	#Wordpress needs to be in the webroot of /var/www in this case
 	root /var/www;
 	index index.html index.htm index.php;
-	try_files $uri $uri/ /index.php?q=$uri&amp;$args;
+	try_files $uri $uri/ /index.php?q=$uri&$args;
 
 	# Define default caching of 24h
 	expires 86400s;
