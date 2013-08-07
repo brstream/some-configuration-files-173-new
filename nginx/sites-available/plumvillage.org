@@ -17,7 +17,7 @@ server {
 	client_body_buffer_size 128k;
 
 	#Wordpress needs to be in the webroot of /var/www in this case
-	root /var/www;
+	root /var/www/plumvillage.org;
 	index index.html index.htm index.php;
 	try_files $uri $uri/ /index.php?q=$uri&$args;
 
@@ -88,9 +88,9 @@ server {
     	fastcgi_send_timeout 180;
     	fastcgi_read_timeout 180;
     	fastcgi_buffer_size 128k;
-    	fastcgi_buffers 4 265k;
-    	fastcgi_busy_buffers_size 256k;
-    	fastcgi_temp_file_write_size 256k;
+	fastcgi_buffers 4 256k;
+	fastcgi_busy_buffers_size 257k;
+        fastcgi_temp_file_write_size 256k;
     }
 
     # Deny access to hidden files
