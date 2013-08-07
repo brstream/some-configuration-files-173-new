@@ -56,18 +56,18 @@ sub vcl_recv {
         return(lookup);
     }
  
-    if (req.request != "GET" &amp;&amp;
-        req.request != "HEAD" &amp;&amp;
-        req.request != "PUT" &amp;&amp;
-        req.request != "POST" &amp;&amp;
-        req.request != "TRACE" &amp;&amp;
-        req.request != "OPTIONS" &amp;&amp;
+    if (req.request != "GET" &&
+        req.request != "HEAD" &&
+        req.request != "PUT" &&
+        req.request != "POST" &&
+        req.request != "TRACE" &&
+        req.request != "OPTIONS" &&
         req.request != "DELETE") {
             # /* Non-RFC2616 or CONNECT which is weird. */
             return (pipe);
     }
  
-    if (req.request != "GET" &amp;&amp; req.request != "HEAD") {
+    if (req.request != "GET" && req.request != "HEAD") {
         # /* We only deal with GET and HEAD by default */
         return (pass);
     }
@@ -115,7 +115,7 @@ sub vcl_fetch {
     unset beresp.http.X-Powered-By;
  
     # only allow cookies to be set if we're in admin area
-    if( beresp.http.Set-Cookie &amp;&amp; req.url !~ "^/wp-(login|admin)" ){
+    if( beresp.http.Set-Cookie && req.url !~ "^/wp-(login|admin)" ){
         unset beresp.http.Set-Cookie;
     }
  
