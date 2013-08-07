@@ -24,7 +24,7 @@ server {
 	# Define default caching of 24h
 	expires 86400s;
 	add_header Pragma public;
-	add_header "max-age=86400, public, must-revalidate, proxy-revalidate";
+	add_header Cache-Control "max-age=86400, public, must-revalidate, proxy-revalidate";
 
 	# Deliver a static 404
 	error_page 404 /404.html;
